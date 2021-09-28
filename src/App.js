@@ -1,3 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './custom.scss';
-
+import React from 'react';
+import './App.css';  
+import Layout  from './Layout/Layout'

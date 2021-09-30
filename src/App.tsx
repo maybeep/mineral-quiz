@@ -68,6 +68,9 @@ function App(): JSX.Element {
 
   const [score, setScore] = useState(0);
 
+  // state for storing which image to show (corresponds with question #)
+  const [image, setImage] = useState(0);
+
   return (
     <div className='container-fluid'>
       <div className='row'>

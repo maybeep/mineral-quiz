@@ -45,24 +45,53 @@ function App(): JSX.Element {
     },
   ];
 
+  // state for holding current quesition number
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  // go to next question when answer is clicked
+  const handleAnswerButtonClick = (isCorrect: boolean) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length){
+      setCurrentQuestion(nextQuestion);
+    } else {
+      // show score after last question
+      setShowScore(true);
+    }
+  }
+
+  // state for storing whether or not to show the score screen
+  const [showScore, setShowScore] = useState(false);
+
+  const [score, setScore] = useState(0);
+
   return (
-    <Container className="App">
-      <Row>
-        
-      </Row>
-      <Row>
-        <div className='question-section'>
-						<div className='question-count'>
-							<span>Mineral 1</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[0].questionText}</div>
-					</div>
-          <div className='answer-section'>
-						{questions[0].answerOptions.map((answerOption, index) => (
-              <button>{answerOption.answerText}</button>
-            ))}
-					</div>
-      </Row>
+    <Container>
+      <div className='app'>
+        {showScore ? (
+          <div className='score-section'>
+            You scored {score} out of {questions.length}
+          </div>
+        ) : (
+          <Row>
+          <>
+            <div className='question-section'>
+              <div className='question-count'>
+                <span>Question {currentQuestion + 1}</span>/{questions.length}
+              </div>
+              <div className='question-text'>{questions[currentQuestion].questionText}</div>
+            </div>
+            <div className='answer-section'>
+              {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+              ))}
+            </div>
+          </>
+          </Row>
+        )}
+      </div>
     </Container>
   );
 }

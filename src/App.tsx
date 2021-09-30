@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
-import { Col, Container, Row } from 'react-bootstrap';
 
 function App(): JSX.Element {
   // https://github.com/chrisblakely01/quiz-app/blob/master/starter/src/App.js
@@ -48,6 +47,9 @@ function App(): JSX.Element {
 
   // state for holding current quesition number
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  
+  // state for storing which image to show (corresponds with question #)
+  const [currentImage, setImage] = useState(0);
 
   // go to next question when answer is clicked
   const handleAnswerButtonClick = (isCorrect: boolean) => {
@@ -55,8 +57,10 @@ function App(): JSX.Element {
       setScore(score + 1);
     }
     const nextQuestion = currentQuestion + 1;
+    const nextImage = currentImage + 1;
     if (nextQuestion < questions.length){
       setCurrentQuestion(nextQuestion);
+      setImage(nextImage);
     } else {
       // show score after last question
       setShowScore(true);
@@ -67,9 +71,6 @@ function App(): JSX.Element {
   const [showScore, setShowScore] = useState(false);
 
   const [score, setScore] = useState(0);
-
-  // state for storing which image to show (corresponds with question #)
-  const [image, setImage] = useState(0);
 
   return (
     <div className='container-fluid'>
@@ -102,12 +103,13 @@ function App(): JSX.Element {
             </>
           )}
         </div>
-        </div>
-        <div className='col'>
+      </div>
+      <div className='col'>
         <div className='mineral-image'>
-          <h1>Image</h1>
+          <img src={process.env.PUBLIC_URL + '/images/' + (currentImage + 1) + '.jpg'} 
+          height="200px" border-radius="15px;"/>
         </div>
-        </div>
+      </div>
       </div>
     </div>
   );

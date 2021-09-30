@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/mineral-quiz/static/css/main.7f51aad6.chunk.css",
+    "main.js": "/mineral-quiz/static/js/main.d5f67cce.chunk.js",
+    "main.js.map": "/mineral-quiz/static/js/main.d5f67cce.chunk.js.map",
+    "runtime-main.js": "/mineral-quiz/static/js/runtime-main.371852c4.js",
+    "runtime-main.js.map": "/mineral-quiz/static/js/runtime-main.371852c4.js.map",
+    "static/css/2.f2512455.chunk.css": "/mineral-quiz/static/css/2.f2512455.chunk.css",
+    "static/js/2.1f8cfa67.chunk.js": "/mineral-quiz/static/js/2.1f8cfa67.chunk.js",
+    "static/js/2.1f8cfa67.chunk.js.map": "/mineral-quiz/static/js/2.1f8cfa67.chunk.js.map",
+    "index.html": "/mineral-quiz/index.html",
+    "static/css/2.f2512455.chunk.css.map": "/mineral-quiz/static/css/2.f2512455.chunk.css.map",
+    "static/css/main.7f51aad6.chunk.css.map": "/mineral-quiz/static/css/main.7f51aad6.chunk.css.map",
+    "static/js/2.1f8cfa67.chunk.js.LICENSE.txt": "/mineral-quiz/static/js/2.1f8cfa67.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/mineral-quiz/static/media/mineral.617f6dfc.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.371852c4.js",
+    "static/css/2.f2512455.chunk.css",
+    "static/js/2.1f8cfa67.chunk.js",
+    "static/css/main.7f51aad6.chunk.css",
+    "static/js/main.d5f67cce.chunk.js"
+  ]
+}

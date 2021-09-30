@@ -92,6 +92,9 @@ function App(): JSX.Element {
           </Row>
         )}
       </div>
+      <div className='mineral-image'>
+        <h1>Image</h1>
+      </div>
     </Container>
   );
 }

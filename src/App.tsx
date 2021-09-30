@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Header } from './components/Header';
 import { Menu } from './components/Menu';
-import { Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function App(): JSX.Element {
   // https://github.com/chrisblakely01/quiz-app/blob/master/starter/src/App.js
@@ -68,34 +69,44 @@ function App(): JSX.Element {
   const [score, setScore] = useState(0);
 
   return (
-    <Container>
-      <div className='app'>
-        {showScore ? (
-          <div className='score-section'>
-            You scored {score} out of {questions.length}
-          </div>
-        ) : (
-          <Row>
-          <>
-            <div className='question-section'>
-              <div className='question-count'>
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
+    <div className='container-fluid'>
+      <div className='row'>
+        <Header />
+      </div>
+      <div className='row'>
+        <div className='col-sm-2'>
+          <Menu />
+        </div>
+        <div className='col'>
+        <div className='app'>
+          {showScore ? (
+            <div className='score-section'>
+              You scored {score} out of {questions.length}
+            </div>
+          ) : (
+            <>
+              <div className='question-section'>
+                <div className='question-count'>
+                  <span>Question {currentQuestion + 1}</span>/{questions.length}
+                </div>
+                <div className='question-text'>{questions[currentQuestion].questionText}</div>
               </div>
-              <div className='question-text'>{questions[currentQuestion].questionText}</div>
-            </div>
-            <div className='answer-section'>
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-              ))}
-            </div>
-          </>
-          </Row>
-        )}
+              <div className='answer-section'>
+                {questions[currentQuestion].answerOptions.map((answerOption) => (
+                  <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        </div>
+        <div className='col'>
+        <div className='mineral-image'>
+          <h1>Image</h1>
+        </div>
+        </div>
       </div>
-      <div className='mineral-image'>
-        <h1>Image</h1>
-      </div>
-    </Container>
+    </div>
   );
 }
 

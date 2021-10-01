@@ -82,6 +82,7 @@ function App(): JSX.Element {
           <Menu />
         </div>
         <div className='col'>
+        <h1>Framework Silicates</h1>
         <div className='app'>
           {showScore ? (
             <div className='score-section'>
@@ -97,7 +98,7 @@ function App(): JSX.Element {
               </div>
               <div className='answer-section'>
                 {questions[currentQuestion].answerOptions.map((answerOption) => (
-                  <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                  <button type="button" className="btn btn-dark btn-sm" onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
                 ))}
               </div>
             </>
@@ -107,7 +108,7 @@ function App(): JSX.Element {
       <div className='col'>
         <div className='mineral-image'>
           <img src={process.env.PUBLIC_URL + '/images/' + (currentImage + 1) + '.jpg'} 
-          height="200px" border-radius="15px;"/>
+          height="250px" width="auto"/>
         </div>
       </div>
       </div>
